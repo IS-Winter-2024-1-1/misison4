@@ -1,4 +1,5 @@
 ﻿using Mission4;
+using System;
 
 internal class Program
 {
@@ -20,35 +21,53 @@ internal class Program
             if ((turnCount % 2) == 1)
             {
                 //Make the first player choose their spot from the board
-                Console.Write("Player X: Choose where to place your X");
-                int turnLocationX = int.Parse(Console.ReadLine());
-                int turnIndexX = turnLocationX - 1;
-                //Check to see if chosen space has already been taken; then update the gameBoard
-                if (gameBoard[turnIndexX] == "X" || gameBoard[turnIndexX] == "O")
+                Console.Write("Player X: Choose where to place your X (1-9) \n");
+                try
                 {
-                    Console.WriteLine("This space has already been taken");
+                    int turnLocationX = int.Parse(Console.ReadLine());
+                    int turnIndexX = turnLocationX - 1;
+                    //Check to see if chosen space has already been taken; then update the gameBoard
+                    if (gameBoard[turnIndexX] == "X" || gameBoard[turnIndexX] == "O")
+                    {
+                        Console.WriteLine("\nThis space has already been taken");
+                    }
+                    else
+                    {
+                        gameBoard[turnIndexX] = "X";
+                    }
                 }
-                else
+                catch (Exception e) 
                 {
-                    gameBoard[turnIndexX] = "X";
+                    Console.WriteLine("You need to input the number of the space you want to fill!\n");
                 }
             }
             // If the turn count is even, it is player O's turn
             else
             {
-                //Make the second player choose their spot from the board
-                Console.Write("Player O: Choose where to place your O");
-                int turnLocationO = int.Parse(Console.ReadLine());
-                int turnIndexO = turnLocationO - 1;
-                //Check to see if chosen space has already been taken; then update the gameBoard
-                if (gameBoard[turnIndexO] == "X" || gameBoard[turnIndexO] == "O")
+                try 
                 {
-                    Console.WriteLine("This space has already been taken");
+                    //Make the second player choose their spot from the board
+                    Console.Write("Player O: Choose where to place your O (1-9) \n");
+                    int turnLocationO = int.Parse(Console.ReadLine());
+                    int turnIndexO = turnLocationO - 1;
+                    //Check to see if chosen space has already been taken; then update the gameBoard
+                    if (gameBoard[turnIndexO] == "X" || gameBoard[turnIndexO] == "O")
+                    {
+                        Console.WriteLine("\nThis space has already been taken");
+                    }
+                    else
+                    {
+                        gameBoard[turnIndexO] = "O";
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    gameBoard[turnIndexO] = "O";
+                    Console.WriteLine("You need to input the number of the space you want to fill!\n");
                 }
+
+
+
+
             }
 
             
