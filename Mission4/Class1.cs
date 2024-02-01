@@ -12,11 +12,11 @@ namespace Mission4
         public static void printBoard(string[] board)
         {
             // Print out the board.
-            Console.WriteLine(board[0] + " | " + board[1] + " | " + board[2] +
+            Console.WriteLine("\n" + board[0] + " | " + board[1] + " | " + board[2] +
                                 "\n——————————\n" +
                                 board[3] + " | " + board[4] + " | " + board[5] +
                                 "\n——————————\n" +
-                                board[6] + " | " + board[7] + " | " + board[8] 
+                                board[6] + " | " + board[7] + " | " + board[8] + "\n"
                                 );
         }
 
